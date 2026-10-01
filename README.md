@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/banner.svg" alt="MediaControll — dynamic island media player for Quickshell" width="100%">
+<img src="assets/demo.gif" alt="Hovering the capsule opens the dynamic island" width="100%">
 
 # MediaControll
 
@@ -31,11 +31,18 @@
 
 ## Preview
 
-<!-- Add a real recording: wf-recorder -g "$(slurp)" -f demo.mp4
-     ffmpeg -i demo.mp4 -vf "fps=30,scale=800:-1:flags=lanczos" assets/demo.gif
-     then embed: <img src="assets/demo.gif" width="80%"> -->
+Real screenshots from a Hyprland desktop while Bad Apple!! plays in Firefox.
 
-The banner above shows the open/close cycle. The real island uses spring physics and the blurred cover art of the current track.
+<table>
+<tr>
+<td align="center"><b>Capsule in the bar</b></td>
+<td align="center"><b>Dynamic island on hover</b></td>
+</tr>
+<tr>
+<td align="center"><img src="assets/capsule.png" alt="Collapsed capsule with cover, title and equalizer" width="290"></td>
+<td align="center"><img src="assets/island.png" alt="Open island with cover, progress, controls and volume" width="420"></td>
+</tr>
+</table>
 
 ## Requirements
 
@@ -158,7 +165,7 @@ MediaControll/
 │       └── liquidglass.frag.qsb # compiled shader
 ├── patches/
 │   └── statusbar-media.patch    # registers "media" in StatusbarWindow.qml
-├── assets/banner.svg
+├── assets/                    # demo GIF and screenshots
 └── install.sh
 ```
 
