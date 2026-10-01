@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 300" width="840" height="300" font-family="Fira Sans, Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#06191c"/>
+      <stop offset="1" stop-color="#10292d"/>
+    </linearGradient>
+    <linearGradient id="art" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#39c5bb">
+        <animate attributeName="stop-color" values="#39c5bb;#e05aa8;#7b6cf6;#39c5bb" dur="9s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="1" stop-color="#137a7f">
+        <animate attributeName="stop-color" values="#137a7f;#6b2d7a;#1d3f8f;#137a7f" dur="9s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".22"/>
+      <stop offset=".5" stop-color="#fff" stop-opacity=".03"/>
+      <stop offset="1" stop-color="#39c5bb" stop-opacity=".15"/>
+    </linearGradient>
+    <filter id="blur"><feGaussianBlur stdDeviation="28"/></filter>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#000" flood-opacity=".55"/>
+    </filter>
+    <clipPath id="islandClip">
+      <rect x="320" y="40" width="200" height="30" rx="15">
+        <animate attributeName="x" values="320;320;210;210;320" keyTimes="0;.15;.3;.8;1" dur="6s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;.2 .9 .3 1.15;0 0 1 1;.6 0 .8 .4"/>
+        <animate attributeName="width" values="200;200;420;420;200" keyTimes="0;.15;.3;.8;1" dur="6s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;.2 .9 .3 1.15;0 0 1 1;.6 0 .8 .4"/>
+        <animate attributeName="height" values="30;30;222;222;30" keyTimes="0;.15;.3;.8;1" dur="6s" repeatCount="indefinite" calcMode="spline" keySplines="0 0 1 1;.2 .9 .3 1.15;0 0 1 1;.6 0 .8 .4"/>
+        <animate attributeName="rx" values="15;15;34;34;15" keyTimes="0;.15;.3;.8;1" dur="6s" repeatCount="indefinite"/>
+      </rect>
+    </clipPath>
+  </defs>
+
+  <rect width="840" height="300" rx="18" fill="url(#bg)"/>
+  <!-- bar strip -->
+  <rect x="20" y="32" width="800" height="46" rx="22" fill="#fff" fill-opacity=".05" stroke="#fff" stroke-opacity=".1"/>
+  <g fill="#e0f7f5" fill-opacity=".55" font-size="13">
+    <text x="44" y="60">  1  2  3</text>
+    <text x="740" y="60">23:59</text>
+  </g>
+
+  <!-- island -->
+  <g filter="url(#shadow)">
+    <g clip-path="url(#islandClip)">
+      <rect x="150" y="0" width="540" height="300" fill="url(#art)"/>
+      <circle cx="300" cy="90" r="90" fill="#fff" fill-opacity=".25" filter="url(#blur)"/>
+      <rect x="150" y="0" width="540" height="300" fill="#000" fill-opacity=".3"/>
+      <rect x="150" y="0" width="540" height="300" fill="url(#sheen)"/>
+
+      <!-- capsule row (fades out as island opens) -->
+      <g>
+        <animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;.15;.22;.88;1" dur="6s" repeatCount="indefinite"/>
+        <circle cx="352" cy="55" r="11" fill="url(#art)" stroke="#fff" stroke-opacity=".5"/>
+        <text x="370" y="60" fill="#fff" font-size="13">Now playing</text>
+        <g fill="#fff">
+          <rect x="460" y="51" width="3" height="10" rx="1.5"><animate attributeName="height" values="4;11;4" dur=".55s" repeatCount="indefinite"/><animate attributeName="y" values="62;55;62" dur=".55s" repeatCount="indefinite"/></rect>
+          <rect x="465" y="51" width="3" height="10" rx="1.5"><animate attributeName="height" values="4;12;4" dur=".7s" begin=".1s" repeatCount="indefinite"/><animate attributeName="y" values="62;54;62" dur=".7s" begin=".1s" repeatCount="indefinite"/></rect>
+          <rect x="470" y="51" width="3" height="10" rx="1.5"><animate attributeName="height" values="4;9;4" dur=".62s" begin=".2s" repeatCount="indefinite"/><animate attributeName="y" values="62;57;62" dur=".62s" begin=".2s" repeatCount="indefinite"/></rect>
+        </g>
+      </g>
+
+      <!-- expanded content -->
+      <g opacity="0">
+        <animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.24;.32;.76;.82;1" dur="6s" repeatCount="indefinite"/>
+        <rect x="232" y="62" width="76" height="76" rx="16" fill="url(#art)" stroke="#fff" stroke-opacity=".35"/>
+        <text x="324" y="84" fill="#fff" fill-opacity=".6" font-size="11">Spotify</text>
+        <text x="324" y="106" fill="#fff" font-size="17" font-weight="bold">Dynamic Island</text>
+        <text x="324" y="126" fill="#fff" fill-opacity=".72" font-size="13">MediaControll for Quickshell</text>
+        <g fill="#39c5bb">
+          <rect x="580" y="66" width="3" height="18" rx="1.5"><animate attributeName="height" values="6;16;6" dur=".55s" repeatCount="indefinite"/><animate attributeName="y" values="78;68;78" dur=".55s" repeatCount="indefinite"/></rect>
+          <rect x="585" y="66" width="3" height="18" rx="1.5"><animate attributeName="height" values="6;18;6" dur=".7s" begin=".1s" repeatCount="indefinite"/><animate attributeName="y" values="78;66;78" dur=".7s" begin=".1s" repeatCount="indefinite"/></rect>
+          <rect x="590" y="66" width="3" height="18" rx="1.5"><animate attributeName="height" values="6;13;6" dur=".62s" begin=".2s" repeatCount="indefinite"/><animate attributeName="y" values="78;71;78" dur=".62s" begin=".2s" repeatCount="indefinite"/></rect>
+        </g>
+        <!-- progress -->
+        <text x="232" y="164" fill="#fff" fill-opacity=".65" font-size="11">1:12</text>
+        <text x="584" y="164" fill="#fff" fill-opacity=".65" font-size="11">3:41</text>
+        <rect x="270" y="157" width="300" height="5" rx="2.5" fill="#fff" fill-opacity=".22"/>
+        <rect x="270" y="157" width="100" height="5" rx="2.5" fill="#fff">
+          <animate attributeName="width" values="90;150" dur="6s" repeatCount="indefinite"/>
+        </rect>
+        <!-- controls -->
+        <g fill="#fff">
+          <path d="M370 196 l-12 8 l12 8z M356 196 v16 h-3 v-16z"/>
+          <circle cx="420" cy="204" r="23" fill-opacity=".92"/>
+          <g fill="#000"><rect x="412" y="195" width="5" height="18" rx="1"/><rect x="423" y="195" width="5" height="18" rx="1"/></g>
+          <path d="M470 196 l12 8 l-12 8z M484 196 v16 h3 v-16z"/>
+        </g>
+        <!-- volume -->
+        <rect x="270" y="243" width="300" height="5" rx="2.5" fill="#fff" fill-opacity=".22"/>
+        <rect x="270" y="243" width="210" height="5" rx="2.5" fill="#39c5bb"/>
+        <text x="584" y="250" fill="#fff" fill-opacity=".65" font-size="11">70%</text>
+      </g>
+    </g>
+    <!-- glass rim -->
+    <rect x="210" y="40" width="420" height="222" rx="34" fill="none" stroke="#fff" stroke-opacity=".25" clip-path="url(#islandClip)" stroke-width="2"/>
+  </g>
+</svg>

@@ -1,0 +1,51 @@
+--- a/StatusbarApp/StatusbarWindow.qml	2026-10-01 23:00:48.004425389 +0200
++++ b/StatusbarApp/StatusbarWindow.qml	2026-10-01 23:00:48.004500489 +0200
+@@ -357,6 +357,12 @@
+         }
+     }
+     Component { id: cPowerProfile; PowerProfileModule {} }
++    Component {
++        id: cMedia
++        MediaModule {
++            onCollapsedChanged: Qt.callLater(root.rebuildNavItems)
++        }
++    }
+ 
+     readonly property var moduleComponents: ({
+         "terminal":   cTerminal,
+@@ -370,7 +376,8 @@
+         "updates":      cUpdates,
+         "volume":       cVolume,
+         "battery":      cBattery,
+-        "powerprofile": cPowerProfile
++        "powerprofile": cPowerProfile,
++        "media":        cMedia
+     })
+ 
+     // --- KEYBOARD NAVIGATION ---
+@@ -425,7 +432,8 @@
+     function applyFocus(): void {
+         let items = root.navItems
+         for (let i = 0; i < items.length; i++)
+-            items[i].focused = (i === root.focusIndex)
++            if (items[i])
++                items[i].focused = (i === root.focusIndex)
+     }
+ 
+     onFocusIndexChanged: applyFocus()
+@@ -734,6 +742,7 @@
+                 Loader {
+                     Layout.alignment: Qt.AlignVCenter
+                     sourceComponent: root.moduleComponents[modelData] || null
++                    visible: (item && item.collapsed !== undefined) ? !item.collapsed : true
+                     onLoaded: Qt.callLater(root.rebuildNavItems)
+                 }
+             }
+@@ -753,6 +762,7 @@
+                 Loader {
+                     Layout.alignment: Qt.AlignVCenter
+                     sourceComponent: root.moduleComponents[modelData] || null
++                    visible: (item && item.collapsed !== undefined) ? !item.collapsed : true
+                     onLoaded: Qt.callLater(root.rebuildNavItems)
+                 }
+             }
