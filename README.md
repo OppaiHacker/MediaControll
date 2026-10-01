@@ -31,7 +31,7 @@
 
 ## Preview
 
-Real screenshots from a Hyprland desktop while Bad Apple!! plays in Firefox.
+Real screenshots from Hyprland (black background) while Bad Apple!! plays on YouTube in Firefox.
 
 <table>
 <tr>
